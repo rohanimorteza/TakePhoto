@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                             builder.setCancelable(true);
-                            builder.setTitle("دسترسی ضروری به دوربین !!!");
+                            builder.setTitle("دسترسی به دوربین ؟؟؟");
                             builder.setMessage("برای استفاده از دوربین، و گرفتن عکس از دانشجو برنامه به این دسترسی نیاز دارد.");
                             builder.setPositiveButton("موافقم", new DialogInterface.OnClickListener() {
                                 @Override
@@ -108,8 +108,6 @@ public class MainActivity extends AppCompatActivity {
                         startActivityForResult(intent,2);
                     }
                 }
-
-
 
             }
         });
@@ -146,7 +144,8 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode){
             case REQUEST_PERMISSION :
                 if(grantResults.length>=0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                    //Toast.makeText(getApplicationContext(),"شما دسترسی را تائید کردید. متشکریم",Toast.LENGTH_LONG).show();
+                    Intent intent  = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent,2);
                 }else {
                     Toast.makeText(getApplicationContext(),"شما این دسترسی را تائید نکردید",Toast.LENGTH_LONG).show();
                     finish();
@@ -154,6 +153,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-
+    
 }
